@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <!-- Icones: Lucide / Feather (llicència ISC / MIT), vegeu ../assets/LICENSE-icones.txt -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Làctics Foix · Artesans de la llet a Torrelles de Foix</title>
+  <meta name="description" content="Granja Cal Manyà: llet crua, iogurts, mató, flams i formatge fresc elaborats a Torrelles de Foix, Alt Penedès.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#efe3cb">
+  <meta property="og:title" content="Làctics Foix · Granja Cal Manyà">
+  <meta property="og:image" content="../assets/img/llet.jpg">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500&family=Caveat:wght@500;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --kraft:#efe3cb; --kraft-2:#e5d4b3; --paper:#fbf6ea; --ink:#2b2118; --muted:#6b5b48;
+      --green:#2d6a3e; --green-d:#1f4a2b; --red:#a8452f; --line:rgba(43,33,24,.18);
+      --serif:"Fraunces",Georgia,serif; --hand:"Caveat",cursive; --sans:"Work Sans",system-ui,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+    body{font-family:var(--sans);color:var(--ink);line-height:1.65;font-size:1.05rem;
+      background-color:var(--kraft);
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .18 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    :focus-visible{outline:3px dashed var(--red);outline-offset:4px}
+    .wrap{width:min(1120px,calc(100% - 36px));margin-inline:auto}
+    .skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--green);color:#fff;padding:10px 16px}
+    .skip:focus{top:12px}
+    h1,h2,h3{font-family:var(--serif);line-height:1.08;font-weight:800;letter-spacing:-.01em}
+    h2{font-size:clamp(2.1rem,4.6vw,3.4rem);margin-bottom:16px}
+    .hand{font-family:var(--hand);font-weight:700;color:var(--red);font-size:1.7rem;line-height:1;display:inline-block;transform:rotate(-3deg)}
+    .lead{font-size:1.12rem;color:var(--muted);max-width:60ch}
+    .lead+.lead{margin-top:12px}
+    .center{text-align:center}.center .lead{margin-inline:auto}
+
+    /* top */
+    .top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--kraft) 94%,transparent);backdrop-filter:blur(8px);border-bottom:2px solid var(--ink)}
+    .top .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+    .stamp{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .stamp svg{width:46px;height:46px}
+    .stamp b{font-family:var(--serif);font-size:1.25rem;letter-spacing:.02em}
+    .stamp small{display:block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
+    .top nav{display:flex;gap:4px}
+    .top nav a{text-decoration:none;font-weight:500;padding:8px 12px;border-radius:4px}
+    .top nav a:hover{background:var(--kraft-2)}
+    .menu{display:none;background:none;border:2px solid var(--ink);width:44px;height:44px;border-radius:4px;cursor:pointer;color:var(--ink)}
+    .btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;background:var(--green);color:#fff;text-decoration:none;font-weight:600;border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);border-radius:4px;cursor:pointer;font:600 1rem var(--sans);transition:transform .12s,box-shadow .12s}
+    .btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+    .btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+    .btn.paper{background:var(--paper);color:var(--ink)}
+
+    /* hero illustration */
+    .hero{position:relative;overflow:hidden;border-bottom:2px solid var(--ink)}
+    .hero-text{position:relative;z-index:2;padding:72px 0 0;text-align:center}
+    .hero h1{font-size:clamp(3rem,8vw,6.2rem);font-weight:800;color:var(--green-d)}
+    .hero h1 span{display:block;font-style:italic;font-weight:500;font-size:.5em;color:var(--ink)}
+    .hero .lead{margin:18px auto 26px}
+    .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .scene{display:block;width:100%;height:auto;margin-top:-10px}
+    .hero .note{position:absolute;right:6%;top:120px;z-index:2}
+
+    section{padding:96px 0}
+    section[id]{scroll-margin-top:80px}
+
+    /* intro */
+    .intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+    .polaroid{background:#fff;padding:14px 14px 50px;box-shadow:0 12px 30px rgba(43,33,24,.22);transform:rotate(2deg);position:relative}
+    .polaroid img{width:100%;aspect-ratio:1;object-fit:cover}
+    .polaroid figcaption{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-family:var(--hand);font-size:1.6rem}
+    .polaroid::before{content:"";position:absolute;top:-14px;left:50%;width:110px;height:30px;transform:translateX(-50%) rotate(-3deg);background:rgba(250,240,200,.75);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+    .pol-stack{position:relative}
+    .pol-stack .polaroid:nth-child(2){position:absolute;width:52%;right:-8%;bottom:-18%;transform:rotate(-6deg)}
+
+    /* process */
+    .process{background:var(--green-d);color:var(--paper);border-block:2px solid var(--ink)}
+    .process .lead{color:rgba(251,246,234,.8)}
+    .process .hand{color:#f2c46d}
+    .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px;counter-reset:s}
+    .steps li{counter-increment:s;border:2px dashed rgba(251,246,234,.35);border-radius:10px;padding:24px 20px;position:relative}
+    .steps li::before{content:"0" counter(s);font-family:var(--serif);font-weight:800;font-size:2.4rem;color:#f2c46d;line-height:1;display:block;margin-bottom:10px}
+    .steps svg{position:absolute;right:16px;top:20px;width:40px;height:40px;color:rgba(251,246,234,.7)}
+    .steps h3{font-size:1.3rem;margin-bottom:6px}
+    .steps p{color:rgba(251,246,234,.78);font-size:.96rem}
+
+    /* labels (products) */
+    .labels{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px}
+    .label{background:var(--paper);border:2px solid var(--ink);border-radius:10px;overflow:hidden;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;transition:transform .2s}
+    .label:hover{transform:rotate(-.6deg) translateY(-3px)}
+    .label img{width:100%;aspect-ratio:5/4;object-fit:cover;border-bottom:2px solid var(--ink)}
+    .label .b{padding:18px 20px 22px;text-align:center;display:flex;flex-direction:column;gap:6px;flex:1}
+    .label h3{font-size:1.45rem;color:var(--green);text-transform:uppercase;letter-spacing:.04em}
+    .label .sub{font-family:var(--hand);font-size:1.4rem;color:var(--red);line-height:1}
+    .label p{color:var(--muted);font-size:.95rem}
+    .flav{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;list-style:none;margin-top:auto;padding-top:8px}
+    .flav li{border:1.5px solid var(--green);color:var(--green);font-size:.8rem;font-weight:600;padding:3px 10px;border-radius:999px}
+    .ribbon{margin:40px auto 0;max-width:720px;text-align:center;border:2px solid var(--ink);background:var(--paper);padding:16px 22px;border-radius:6px}
+
+    /* history timeline */
+    .tl{position:relative;margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    .tl::before{content:"";position:absolute;left:0;right:0;top:26px;border-top:3px dotted var(--ink)}
+    .tl article{position:relative;padding-top:64px}
+    .tl article::before{content:"";position:absolute;top:14px;left:0;width:26px;height:26px;border-radius:50%;background:var(--red);border:3px solid var(--ink)}
+    .tl strong{font-family:var(--serif);font-size:1.7rem;font-weight:800;display:block;color:var(--green-d)}
+    .tl p{color:var(--muted);font-size:.97rem}
+
+    /* welfare */
+    .welfare{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:48px}
+    .welfare .polaroid{transform:rotate(-2deg)}
+    .welfare .polaroid:nth-child(2){transform:rotate(1.5deg) translateY(14px)}
+    .welfare .polaroid:nth-child(3){transform:rotate(-1deg)}
+    .welfare .polaroid p{font-size:.93rem;color:var(--muted);margin-top:10px}
+    .welfare .polaroid{padding-bottom:22px}
+    .welfare .polaroid h3{font-family:var(--hand);font-size:1.9rem;font-weight:700;margin-top:10px;color:var(--ink)}
+
+    /* visit */
+    .visit{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+    .card{background:var(--paper);border:2px solid var(--ink);border-radius:10px;padding:32px;box-shadow:6px 6px 0 var(--ink)}
+    .ticket{display:flex;gap:18px;align-items:center;border:2px dashed var(--ink);border-radius:8px;padding:16px 18px;margin:20px 0;background:var(--kraft)}
+    .ticket strong{font-family:var(--serif);font-size:2rem;line-height:1;color:var(--red)}
+    form{display:grid;gap:12px}
+    label.f{display:grid;gap:4px;font-weight:600;font-size:.92rem}
+    input,select,textarea{font:inherit;font-weight:400;padding:12px 14px;border:2px solid var(--ink);border-radius:4px;background:#fff;color:var(--ink);width:100%}
+    input:focus,select:focus,textarea:focus{outline:3px solid rgba(45,106,62,.35);outline-offset:0}
+    textarea{min-height:100px}
+    .chk{display:flex;gap:10px;font-size:.9rem;align-items:flex-start}
+    .chk input{width:20px;height:20px;flex:none;accent-color:var(--green)}
+    .okmsg{font-weight:600;color:var(--green)}
+
+    /* shop */
+    .shop{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+    .addr{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;line-height:1.2;margin:10px 0 18px}
+    .clist{list-style:none;display:grid;gap:10px;margin-bottom:24px}
+    .clist a{font-weight:600;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:var(--red)}
+    .map-card{padding:0;overflow:hidden}
+    .map-card svg{display:block;width:100%;height:auto}
+
+    footer{background:var(--ink);color:var(--kraft);padding:48px 0 90px}
+    footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}
+    footer a{color:var(--kraft)}
+    footer b{font-family:var(--serif);font-size:1.4rem;display:block}
+    .versions{position:fixed;left:14px;bottom:14px;z-index:60;background:var(--paper);color:var(--ink);border:2px solid var(--ink);text-decoration:none;font-size:.8rem;font-weight:600;padding:8px 14px;border-radius:999px;box-shadow:3px 3px 0 var(--ink)}
+
+    @media (max-width:960px){
+      .top nav{display:none;position:absolute;left:0;right:0;top:70px;flex-direction:column;background:var(--kraft);border-bottom:2px solid var(--ink);padding:10px 18px 18px}
+      .top nav.open{display:flex}
+      .top nav a{padding:14px 10px;font-size:1.05rem}
+      .menu{display:grid;place-items:center}
+      .top .btn{display:none}
+      .intro,.visit,.shop{grid-template-columns:1fr}
+      .steps,.labels,.welfare{grid-template-columns:1fr 1fr}
+      .tl{grid-template-columns:1fr 1fr}
+      .tl::before{display:none}
+      .hero .note{display:none}
+      .pol-stack{max-width:440px;margin:0 auto 60px}
+      .pol-stack .polaroid:nth-child(2){right:-2%}
+      section{padding:72px 0}
+    }
+    @media (max-width:600px){
+      .steps,.labels,.welfare,.tl{grid-template-columns:1fr}
+      .welfare .polaroid:nth-child(2){transform:rotate(1.5deg)}
+    }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Salta al contingut</a>
+<header class="top">
+  <div class="wrap">
+    <a class="stamp" href="#inici" aria-label="Làctics Foix, inici">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="none" stroke="#2b2118" stroke-width="3"/><circle cx="32" cy="32" r="23" fill="#2d6a3e"/><text x="31" y="42" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="26" fill="#fbf6ea">lf</text></svg>
+      <span><b>Làctics Foix</b><small>Granja Cal Manyà</small></span>
+    </a>
+    <nav id="nav" aria-label="Principal">
+      <a href="#granja">La granja</a>
+      <a href="#obrador">Obrador</a>
+      <a href="#productes">Productes</a>
+      <a href="#historia">Història</a>
+      <a href="#visites">Visites</a>
+      <a href="#botiga">Botiga</a>
+    </nav>
+    <a class="btn" href="tel:+34938972191">938 972 191</a>
+    <button class="menu" id="menuBtn" aria-controls="nav" aria-expanded="false" aria-label="Obre el menú"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="inici" style="padding:0">
+    <div class="wrap hero-text">
+      <p class="hand">Des de Torrelles de Foix</p>
+      <h1>Làctics Foix <span>de la nostra granja, a casa teva</span></h1>
+      <p class="lead">Llet i productes làctics artesans elaborats a l’obrador de Cal Manyà, amb la llet de les nostres vaques.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#productes">Els nostres productes</a>
+        <a class="btn paper" href="#visites">Visita la granja</a>
+      </div>
+    </div>
+    <p class="note hand" aria-hidden="true">Alt Penedès ↓</p>
+    <!-- Il·lustració original: paisatge del Penedès amb vinyes, poble i ramat -->
+    <svg class="scene" viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Il·lustració: turons del Penedès amb vinyes, el poble al fons i vaques pasturant">
+      <circle cx="1180" cy="120" r="54" fill="#f2c46d" opacity=".9"/>
+      <path d="M0 250 C200 180 380 210 560 190 S900 140 1100 180 1360 170 1440 160 V420 H0z" fill="#b9c79a"/>
+      <!-- poble -->
+      <g fill="#8a7a5f" stroke="#2b2118" stroke-width="2">
+        <rect x="610" y="150" width="40" height="46"/><rect x="650" y="165" width="56" height="31"/>
+        <rect x="706" y="120" width="26" height="76"/><path d="M700 122 l19-22 19 22z"/>
+        <rect x="738" y="160" width="60" height="36"/><rect x="560" y="170" width="50" height="26"/>
+      </g>
+      <path d="M0 300 C240 250 420 280 640 262 S1040 222 1250 250 1400 262 1440 255 V420 H0z" fill="#8fae6a"/>
+      <!-- vinyes -->
+      <g stroke="#4f7a3a" stroke-width="5" stroke-linecap="round" opacity=".8">
+        <path d="M900 280 L1060 250"/><path d="M905 300 L1080 266"/><path d="M910 320 L1100 282"/><path d="M915 340 L1120 298"/><path d="M920 360 L1140 314"/>
+        <path d="M160 320 L360 290"/><path d="M150 342 L380 306"/><path d="M140 364 L400 322"/>
+      </g>
+      <path d="M0 350 C260 320 520 345 760 330 S1180 300 1440 320 V420 H0z" fill="#5f8b48"/>
+      <!-- vaques (silueta pròpia) -->
+      <g transform="translate(520 318)">
+        <path d="M0 20 q0-18 22-20 h56 q20 0 22 16 l10-6 q10-2 12 8 l-4 14 q-4 6-12 4 l-6 2 v24 h-8 v-20 h-50 v20 h-8 v-22 q-10-4-10-12z" fill="#fbf6ea" stroke="#2b2118" stroke-width="2.5"/>
+        <path d="M30 4 q10 10 2 20 q-12-2-12-12z M62 6 q14 4 8 16 q-10 0-10-10z" fill="#2b2118"/>
+      </g>
+      <g transform="translate(760 336) scale(.8)">
+        <path d="M0 20 q0-18 22-20 h56 q20 0 22 16 l10-6 q10-2 12 8 l-4 14 q-4 6-12 4 l-6 2 v24 h-8 v-20 h-50 v20 h-8 v-22 q-10-4-10-12z" fill="#fbf6ea" stroke="#2b2118" stroke-width="3"/>
+        <path d="M40 2 q16 6 6 22 q-14-4-10-16z M74 10 q10 4 6 12 q-8 0-8-8z" fill="#2b2118"/>
+      </g>
+      <g transform="translate(330 350) scale(-.7 .7)">
+        <path d="M0 20 q0-18 22-20 h56 q20 0 22 16 l10-6 q10-2 12 8 l-4 14 q-4 6-12 4 l-6 2 v24 h-8 v-20 h-50 v20 h-8 v-22 q-10-4-10-12z" fill="#fbf6ea" stroke="#2b2118" stroke-width="3.5"/>
+        <path d="M24 4 q12 8 4 18 q-12-2-10-12z" fill="#2b2118"/>
+      </g>
+      <path d="M0 395 C300 380 700 400 1000 388 S1300 380 1440 386 V420 H0z" fill="#3f6b33"/>
+    </svg>
+  </section>
+
+  <section id="granja">
+    <div class="wrap intro">
+      <div>
+        <p class="hand">Qui som</p>
+        <h2>Una granja familiar al cor de l’Alt Penedès</h2>
+        <p class="lead">A Cal Manyà cuidem el ramat, la terra i l’elaboració amb una mirada propera. Som granja i obrador: la llet surt de casa i es transforma aquí mateix, a Torrelles de Foix.</p>
+        <p class="lead">La proximitat no és un eslògan. És veure cada dia les vaques, seguir el ritme de la munyida i elaborar iogurts, mató, formatge fresc i postres amb la calma que demana un producte honest.</p>
+      </div>
+      <div class="pol-stack">
+        <figure class="polaroid"><img src="../assets/img/nau.webp" loading="lazy" alt="Nau de la granja amb les vaques"><figcaption>La nau de Cal Manyà</figcaption></figure>
+        <figure class="polaroid"><img src="../assets/img/vaca.webp" loading="lazy" alt="Vaca Holstein"><figcaption>Bon dia!</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="obrador" class="process">
+    <div class="wrap center">
+      <p class="hand">El camí de la llet</p>
+      <h2>De l’estable a l’obrador</h2>
+      <p class="lead">Munyim, recollim i transformem. Recorregut curt, sabor reconeixible.</p>
+      <ol class="steps" style="text-align:left">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg><h3>El ramat</h3><p>Vaques Holstein cuidades amb espai, confort i rutines estables.</p></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="3"/><circle cx="12" cy="11" r="3"/><path d="M8 17h8"/></svg><h3>La munyida</h3><p>Robotitzada: cada vaca s’acosta a munyir-se quan ho necessita.</p></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h12l-2 5v11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V8z"/><path d="M8 13h8"/></svg><h3>L’obrador</h3><p>Iogurts, mató, formatge fresc i postres, lot a lot.</p></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l1-5h16l1 5M3 9v11h18V9M3 9h18M9 20v-6h6v6"/></svg><h3>La botiga</h3><p>Al poble, a C/ Raval 75. Del productor a casa teva.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="productes">
+    <div class="wrap center">
+      <p class="hand">Fet a Cal Manyà</p>
+      <h2>Els nostres productes</h2>
+      <p class="lead">Sense preus a la web: pregunta disponibilitat a la botiga o per telèfon.</p>
+      <div class="labels">
+        <article class="label"><img src="../assets/img/llet.webp" loading="lazy" alt="Bosses de llet natural crua"><div class="b"><span class="sub">llet natural</span><h3>Llet crua</h3><p>De la pròpia granja, sense conservants ni additius. Cal bullir-la per al consum.</p></div></article>
+        <article class="label"><img src="../assets/img/surtido.webp" loading="lazy" alt="Iogurts naturals"><div class="b"><span class="sub">de l’obrador</span><h3>Iogurts</h3><p>Fets amb la llet de casa.</p><ul class="flav"><li>Natural</li><li>Desnatat</li><li>Maduixa</li><li>Llimona</li><li>Bífidus</li></ul></div></article>
+        <article class="label"><img src="../assets/img/iogurts-liquids.webp" loading="lazy" alt="Iogurts líquids"><div class="b"><span class="sub">per beure</span><h3>Iogurt líquid</h3><ul class="flav"><li>Natural</li><li>Maduixa</li><li>Plàtan</li><li>Llimona</li><li>Avellana</li><li>Pinya</li></ul></div></article>
+        <article class="label"><img src="../assets/img/surtido.webp" loading="lazy" style="object-position:75% 70%" alt="Mató artesà"><div class="b"><span class="sub">tendre i fresc</span><h3>Mató</h3><p>Tal com el preparem a l’obrador.</p></div></article>
+        <article class="label"><img src="../assets/img/surtido-palla.webp" loading="lazy" style="object-position:70% 80%" alt="Flams"><div class="b"><span class="sub">postres de casa</span><h3>Flams</h3><ul class="flav"><li>Vainilla</li><li>Mató</li></ul></div></article>
+        <article class="label"><img src="../assets/img/surtido-palla.webp" loading="lazy" style="object-position:5% 85%" alt="Formatge fresc i pastís de formatge"><div class="b"><span class="sub">fet a casa</span><h3>Formatge &amp; pastís</h3><p>Formatge fresc de granja i pastís de formatge.</p></div></article>
+      </div>
+      <p class="ribbon"><strong>Consell de la granja:</strong> la llet crua s’ha de bullir abans de prendre-la. Segueix les indicacions de l’envàs.</p>
+    </div>
+  </section>
+
+  <section id="historia" style="background:var(--kraft-2);border-block:2px solid var(--ink)">
+    <div class="wrap">
+      <p class="hand">Tradició familiar, ofici present</p>
+      <h2>La nostra història</h2>
+      <p class="lead">Pere Formatgé va créixer entre vaques i dirigeix la granja amb l’ofici heretat a casa, al costat de Josep Bages.</p>
+      <div class="tl">
+        <article><strong>1986</strong><p>Comença la col·laboració amb Danone des de Torrelles de Foix.</p></article>
+        <article><strong>Renovació</strong><p>Noves instal·lacions i munyida robotitzada, sense perdre el caràcter familiar.</p></article>
+        <article><strong>2011</strong><p>I Premi a la Competitivitat Sostenible dels Premis Ramaders Danone (Parets del Vallès, 25 de març).</p></article>
+        <article><strong>Avui</strong><p>El millor aval: qui torna a la botiga a buscar llet, iogurt o mató.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="benestar">
+    <div class="wrap center">
+      <p class="hand">Les vaques primer</p>
+      <h2>Benestar animal</h2>
+      <p class="lead">El benestar del ramat és la base de la llet: instal·lacions pensades per al descans, el moviment i una alimentació cuidada.</p>
+      <div class="welfare">
+        <figure class="polaroid"><img src="../assets/img/vaca.webp" loading="lazy" alt="Vaca adulta"><h3>Vaques adultes</h3><p>Espai, confort i rutines estables.</p></figure>
+        <figure class="polaroid"><img src="../assets/img/vedells.webp" loading="lazy" alt="Vedells"><h3>Vedells</h3><p>Llits de palla i atenció individual.</p></figure>
+        <figure class="polaroid"><img src="../assets/img/nau-menjadora.webp" loading="lazy" alt="Menjadora"><h3>Estables</h3><p>Nau oberta i maneig diari.</p></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="visites" style="background:var(--kraft-2);border-block:2px solid var(--ink)">
+    <div class="wrap visit">
+      <div>
+        <p class="hand">Vine a veure’ns</p>
+        <h2>Coneix les instal·lacions</h2>
+        <p class="lead">Es poden visitar les instal·lacions per veure com vivim la granja. Cal contactar abans per confirmar disponibilitat: t’atendrem personalment.</p>
+        <div class="ticket"><strong>16–18 h</strong><span>Horari de visites<br><small>amb cita prèvia</small></span></div>
+        <a class="btn" href="tel:+34938972191">Truca per reservar</a>
+      </div>
+      <div class="card">
+        <form id="form" novalidate>
+          <label class="f">Nom<input name="nom" required autocomplete="name"></label>
+          <label class="f">Correu<input name="email" type="email" required autocomplete="email"></label>
+          <label class="f">Telèfon<input name="telefon" type="tel" required autocomplete="tel"></label>
+          <label class="f">Motiu<select name="motiu" required><option value="">Tria…</option><option>Visita a la granja</option><option>Informació de productes</option><option>Botiga</option><option>Altre</option></select></label>
+          <label class="f">Missatge<textarea name="missatge"></textarea></label>
+          <label class="chk"><input type="checkbox" required><span>Accepto la <a href="https://itinformatica.es/proyectos/lactics-foix/privacitat.html">política de privacitat</a>.</span></label>
+          <button class="btn" type="submit">Preparar correu</button>
+          <p class="okmsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="botiga">
+    <div class="wrap shop">
+      <div>
+        <p class="hand">La botiga</p>
+        <h2>Al poble, a tocar</h2>
+        <p class="addr">C/ Raval 75<br>08737 Torrelles de Foix</p>
+        <ul class="clist">
+          <li>Telèfon: <a href="tel:+34938972191">938 972 191</a></li>
+          <li>Correu: <a href="mailto:lacticsfoix@hotmail.com">lacticsfoix@hotmail.com</a></li>
+          <li>Instagram: <a href="https://instagram.com/lacticsfoix" target="_blank" rel="noopener">@lacticsfoix</a></li>
+        </ul>
+        <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Carrer+Raval+75+08737+Torrelles+de+Foix" target="_blank" rel="noopener">Com arribar</a>
+      </div>
+      <a class="card map-card" href="https://www.google.com/maps/search/?api=1&amp;query=Carrer+Raval+75+08737+Torrelles+de+Foix" target="_blank" rel="noopener" aria-label="Obre la ubicació de la botiga a Google Maps">
+        <svg viewBox="0 0 400 280" aria-hidden="true">
+          <rect width="400" height="280" fill="#f4ead3"/>
+          <path d="M-10 190 C80 170 160 200 240 160 S360 120 410 130" stroke="#fff" stroke-width="18" fill="none"/>
+          <path d="M-10 190 C80 170 160 200 240 160 S360 120 410 130" stroke="#c9b894" stroke-width="2" fill="none" stroke-dasharray="8 8"/>
+          <path d="M120 -10 L180 300" stroke="#fff" stroke-width="12"/><path d="M300 -10 C280 90 320 180 290 300" stroke="#fff" stroke-width="10"/>
+          <g fill="#dccaa3"><rect x="30" y="40" width="60" height="40" rx="4"/><rect x="200" y="40" width="70" height="50" rx="4"/><rect x="40" y="220" width="50" height="40" rx="4"/><rect x="320" y="190" width="60" height="60" rx="4"/></g>
+          <g fill="#9fbf7a"><circle cx="340" cy="50" r="22"/><circle cx="360" cy="70" r="16"/></g>
+          <g transform="translate(200 150)"><path d="M0 0 c-16-20-24-30-24-42a24 24 0 0 1 48 0c0 12-8 22-24 42z" fill="#a8452f" stroke="#2b2118" stroke-width="3"/><circle cy="-42" r="8" fill="#fbf6ea"/></g>
+          <text x="200" y="262" text-anchor="middle" font-family="Caveat,cursive" font-size="26" fill="#2b2118">Obre a Google Maps ↗</text>
+        </svg>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Làctics Foix</b>Granja Cal Manyà · Torrelles de Foix · Alt Penedès</div>
+    <div><a href="tel:+34938972191">938 972 191</a> · <a href="mailto:lacticsfoix@hotmail.com">lacticsfoix@hotmail.com</a><br><a href="https://itinformatica.es/proyectos/lactics-foix/privacitat.html">Privacitat</a> · <a href="https://itinformatica.es/proyectos/lactics-foix/avis-legal.html">Avís legal</a></div>
+  </div>
+</footer>
+<a class="versions" href="../index.html">← Totes les versions</a>
+
+<script>
+(() => {
+  const nav = document.getElementById('nav'), mb = document.getElementById('menuBtn');
+  const set = o => { nav.classList.toggle('open', o); mb.setAttribute('aria-expanded', o); };
+  mb.addEventListener('click', () => set(!nav.classList.contains('open')));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => set(false)));
+  document.addEventListener('keydown', e => e.key === 'Escape' && set(false));
+  const form = document.getElementById('form'), ok = form.querySelector('.okmsg');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const d = Object.fromEntries(new FormData(form));
+    location.href = 'mailto:lacticsfoix@hotmail.com?subject=' + encodeURIComponent('Web · ' + d.motiu) + '&body=' + encodeURIComponent(`Nom: ${d.nom}\nTelèfon: ${d.telefon}\nCorreu: ${d.email}\n\n${d.missatge || ''}`);
+    ok.textContent = 'Hem preparat el correu. Gràcies!';
+  });
+})();
+</script>
+</body>
+</html>

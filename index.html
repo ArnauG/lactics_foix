@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Làctics Foix · Propostes de redisseny</title>
+  <meta name="description" content="Quatre propostes de redisseny de la web de Làctics Foix (Granja Cal Manyà, Torrelles de Foix), amb resum de millores d'estil i usabilitat.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f5f3ec; --card:#fff; --ink:#18201a; --muted:#5d665f; --line:#e2e0d6; --green:#2f4a32; --accent:#6f8f3d;
+      --serif:"Fraunces",Georgia,serif; --sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+    }
+    @media (prefers-color-scheme:dark){
+      :root:not([data-theme="light"]){--bg:#121613;--card:#1b211c;--ink:#eef1ec;--muted:#a6afa8;--line:#2b332d;--green:#a9c97a;--accent:#a9c97a}
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+    .wrap{width:min(1180px,calc(100% - 32px));margin-inline:auto}
+    header.top{padding:56px 0 36px}
+    .kicker{font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+    h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.3rem,5.5vw,4rem);line-height:1.05;letter-spacing:-.02em;margin:10px 0 16px}
+    h1 em{font-style:italic;color:var(--green)}
+    .intro{max-width:70ch;color:var(--muted);font-size:1.08rem}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .meta a,.meta span{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:.9rem;text-decoration:none}
+    .meta a:hover{border-color:var(--green)}
+    nav.jump{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+    nav.jump a{font-size:.9rem;font-weight:600;color:var(--green)}
+
+    .grid{display:grid;gap:28px;padding-bottom:40px}
+    .v{display:grid;grid-template-columns:1.15fr 1fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+    .v:nth-child(even) .shot{order:2}
+    .shot{position:relative;background:var(--line);padding:32px 32px 56px;display:flex;align-items:center;min-height:360px;overflow:hidden}
+    .shot .desk{width:86%;border-radius:10px;box-shadow:0 20px 40px rgba(0,0,0,.18);border:1px solid rgba(0,0,0,.08)}
+    .shot .phone{position:absolute;right:24px;bottom:24px;width:24%;max-width:150px;border-radius:18px;border:5px solid #111;box-shadow:0 18px 30px rgba(0,0,0,.3)}
+    .shot.c1{background:linear-gradient(135deg,#efe6d4,#d9cfb8)}
+    .shot.c2{background:linear-gradient(135deg,#fbeec1,#dcebf5)}
+    .shot.c3{background:linear-gradient(135deg,#e5d4b3,#b9c79a)}
+    .shot.c4{background:linear-gradient(135deg,#1e6b34,#27853f)}
+    .info{padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:14px}
+    .num{font-family:var(--serif);font-weight:800;font-size:.95rem;color:var(--accent)}
+    .info h2{font-family:var(--serif);font-weight:800;font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.1}
+    .tagline{color:var(--muted);font-size:1.02rem}
+    .chips{display:flex;flex-wrap:wrap;gap:6px}
+    .chips span{font-size:.78rem;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+    .info h3{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+    .info ul{padding-left:18px;display:grid;gap:5px;font-size:.96rem}
+    .info li::marker{color:var(--accent)}
+    .ideal{font-size:.93rem;background:var(--bg);border-left:3px solid var(--accent);padding:10px 14px;border-radius:0 8px 8px 0}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+    .btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border-radius:12px;background:var(--green);color:var(--bg);text-decoration:none;font-weight:600}
+    .btn:hover{filter:brightness(1.1)}
+    .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+    .swatch{display:flex;gap:4px}
+    .swatch i{width:22px;height:22px;border-radius:50%;border:1px solid rgba(0,0,0,.1)}
+
+    section.block{padding:56px 0}
+    section.block h2{font-family:var(--serif);font-weight:800;font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:10px}
+    .common{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+    .common div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+    .common h3{font-size:1.02rem;margin-bottom:6px}
+    .common p{color:var(--muted);font-size:.93rem}
+    .table-wrap{overflow-x:auto;margin-top:24px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+    table{border-collapse:collapse;width:100%;min-width:720px;font-size:.93rem}
+    th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+    thead th{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    tbody th{font-weight:600}
+    tr:last-child td,tr:last-child th{border-bottom:0}
+    .yes{color:var(--green);font-weight:700}
+    .no{color:var(--muted)}
+    footer{padding:32px 0 48px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
+
+    @media (max-width:900px){
+      .v{grid-template-columns:1fr}
+      .v:nth-child(even) .shot{order:0}
+      .shot{min-height:0;padding:20px 20px 44px}
+      .common{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="kicker">Làctics Foix · Granja Cal Manyà</p>
+    <h1>Quatre propostes per a la <em>web de la granja</em></h1>
+    <p class="intro">Redissenys de la landing page actual amb el mateix contingut i les fotos de la granja, cadascun amb un enfocament visual i d'usabilitat diferent. Totes són estàtiques (HTML + CSS + JS sense dependències), en català com l'original i a punt per a GitHub Pages.</p>
+    <div class="meta">
+      <a href="https://itinformatica.es/proyectos/lactics-foix/" target="_blank" rel="noopener">Veure la web original ↗</a>
+      <span>4 propostes</span>
+      <span>Responsive · accessibles · sense cookies</span>
+    </div>
+    <nav class="jump" aria-label="Anar a proposta">
+      <a href="#p1">1 · Clàssica</a><span aria-hidden="true">·</span>
+      <a href="#p2">2 · Fresca</a><span aria-hidden="true">·</span>
+      <a href="#p3">3 · Artesana</a><span aria-hidden="true">·</span>
+      <a href="#p4">4 · Botiga</a><span aria-hidden="true">·</span>
+      <a href="#comparativa">Comparativa</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="grid">
+    <article class="v" id="p1">
+      <div class="shot c1">
+        <img class="desk" src="assets/previews/v1-classica-desktop.webp" alt="Vista d'escriptori de la proposta Clàssica" loading="lazy">
+        <img class="phone" src="assets/previews/v1-classica-mobil.webp" alt="Vista mòbil de la proposta Clàssica" loading="lazy">
+      </div>
+      <div class="info">
+        <span class="num">Proposta 01</span>
+        <h2>Clàssica refinada</h2>
+        <p class="tagline">L'evolució natural de la web actual: manté la identitat (crema, verd bosc, serif elegant i el logotip «lf») però ordena, alleugereix i fa tot més fàcil d'usar.</p>
+        <div class="swatch" aria-label="Paleta"><i style="background:#f6f0e4"></i><i style="background:#2f4a32"></i><i style="background:#6f8f3d"></i><i style="background:#b8914a"></i><i style="background:#1a211b"></i></div>
+        <h3>Millores principals</h3>
+        <ul>
+          <li>Portada a dues columnes amb mosaic de fotos (substitueix la foto de capçalera) i botons d'acció clars.</li>
+          <li>Menú fix més curt (6 entrades) amb la secció activa ressaltada en fer scroll.</li>
+          <li>Història convertida en línia de temps (1986 → renovació → premi 2011 → avui).</li>
+          <li>Barra inferior en mòbil: <strong>Truca · Com arribar · Visita</strong>.</li>
+          <li>Galeria amb visor accessible: fletxes, teclat, Esc i comptador.</li>
+          <li>Mapa de Google carregat només sota demanda i targetes de contacte clicables.</li>
+        </ul>
+        <p class="ideal"><strong>Ideal si</strong> el client està content amb l'estètica actual i vol un salt de qualitat sense canviar d'imatge.</p>
+        <div class="actions"><a class="btn" href="v1-classica/index.html">Veure proposta →</a></div>
+      </div>
+    </article>
+
+    <article class="v" id="p2">
+      <div class="shot c2">
+        <img class="desk" src="assets/previews/v2-fresca-desktop.webp" alt="Vista d'escriptori de la proposta Fresca" loading="lazy">
+        <img class="phone" src="assets/previews/v2-fresca-mobil.webp" alt="Vista mòbil de la proposta Fresca" loading="lazy">
+      </div>
+      <div class="info">
+        <span class="num">Proposta 02</span>
+        <h2>Fresca i moderna</h2>
+        <p class="tagline">Estil actual tipus «bento»: tipografia grotesca grossa, colors lactis (mantega, cel, herba) i targetes arrodonides. Transmet frescor de producte.</p>
+        <div class="swatch" aria-label="Paleta"><i style="background:#fbfaf5"></i><i style="background:#fbeec1"></i><i style="background:#dcebf5"></i><i style="background:#9bc53d"></i><i style="background:#1f5132"></i></div>
+        <h3>Millores principals</h3>
+        <ul>
+          <li>Portada «bento» amb les dades clau d'un cop d'ull (horari de visites, des de 1986, premi 2011…).</li>
+          <li>Catàleg amb <strong>filtres per categoria</strong> (Llet, Iogurts, Formatges, Postres).</li>
+          <li><strong>Preguntes freqüents</strong> desplegables: on comprar, bullir la llet crua, visites…</li>
+          <li><strong>Mode fosc</strong> automàtic + botó per canviar-lo manualment.</li>
+          <li>Visites explicades en 3 passos i botó flotant de trucada en mòbil.</li>
+          <li>Barra de progrés de lectura i telèfon sempre visible a la capçalera.</li>
+        </ul>
+        <p class="ideal"><strong>Ideal si</strong> es vol atreure públic jove i famílies i donar una imatge més actual de marca.</p>
+        <div class="actions"><a class="btn" href="v2-fresca/index.html">Veure proposta →</a></div>
+      </div>
+    </article>
+
+    <article class="v" id="p3">
+      <div class="shot c3">
+        <img class="desk" src="assets/previews/v3-artesana-desktop.webp" alt="Vista d'escriptori de la proposta Artesana" loading="lazy">
+        <img class="phone" src="assets/previews/v3-artesana-mobil.webp" alt="Vista mòbil de la proposta Artesana" loading="lazy">
+      </div>
+      <div class="info">
+        <span class="num">Proposta 03</span>
+        <h2>Artesana de pagès</h2>
+        <p class="tagline">Paper kraft, lletra manuscrita i fitxes de producte inspirades en les etiquetes verdes de les bosses de llet de la granja. Càlida, propera i amb molta personalitat.</p>
+        <div class="swatch" aria-label="Paleta"><i style="background:#efe3cb"></i><i style="background:#2d6a3e"></i><i style="background:#a8452f"></i><i style="background:#f2c46d"></i><i style="background:#2b2118"></i></div>
+        <h3>Millores principals</h3>
+        <ul>
+          <li><strong>Il·lustració pròpia</strong> del paisatge del Penedès (vinyes, poble, vaques) en SVG: lleugera i sense dependre de la foto de capçalera.</li>
+          <li>Nou bloc <strong>«De l'estable a l'obrador»</strong>: el camí de la llet en 4 passos.</li>
+          <li>Productes com a etiquetes amb els gustos destacats i consell de bullir la llet.</li>
+          <li>Fotos tipus polaroid a granja i benestar animal; història en línia de temps.</li>
+          <li>Mapa il·lustrat (sense carregar Google) que obre la ubicació real.</li>
+        </ul>
+        <p class="ideal"><strong>Ideal si</strong> es vol diferenciar de la resta de granges i reforçar l'artesà i familiar.</p>
+        <div class="actions"><a class="btn" href="v3-artesana/index.html">Veure proposta →</a></div>
+      </div>
+    </article>
+
+    <article class="v" id="p4">
+      <div class="shot c4">
+        <img class="desk" src="assets/previews/v4-botiga-desktop.webp" alt="Vista d'escriptori de la proposta Botiga" loading="lazy">
+        <img class="phone" src="assets/previews/v4-botiga-mobil.webp" alt="Vista mòbil de la proposta Botiga" loading="lazy">
+      </div>
+      <div class="info">
+        <span class="num">Proposta 04</span>
+        <h2>Botiga i comanda</h2>
+        <p class="tagline">Pensada per vendre: el producte va primer i el mòbil es comporta com una app. El visitant prepara la seva llista i l'envia a la botiga en un clic.</p>
+        <div class="swatch" aria-label="Paleta"><i style="background:#f7f8f3"></i><i style="background:#1e6b34"></i><i style="background:#e6f2e3"></i><i style="background:#ffd65a"></i><i style="background:#15231a"></i></div>
+        <h3>Millores principals</h3>
+        <ul>
+          <li><strong>«La meva llista»</strong>: triar producte, gust i quantitat; es desa al navegador.</li>
+          <li>Enviar la llista per correu ja redactada, copiar-la o buidar-la (sense preus ni pagaments: la botiga confirma).</li>
+          <li>Barra superior amb adreça, horari de visites i telèfon; barra inferior tipus app en mòbil.</li>
+          <li>Informació de la granja agrupada en <strong>pestanyes</strong> (Granja, Benestar, Tecnologia, Història, Sostenibilitat): pàgina molt més curta.</li>
+          <li>Formulari de visita simplificat i mapa sota demanda.</li>
+        </ul>
+        <p class="ideal"><strong>Ideal si</strong> l'objectiu principal és que la gent compri o encarregui a la botiga del poble.</p>
+        <div class="actions"><a class="btn" href="v4-botiga/index.html">Veure proposta →</a></div>
+      </div>
+    </article>
+  </div>
+
+  <section class="block" id="comunes">
+    <h2>Millores comunes a les quatre propostes</h2>
+    <p class="intro">Problemes detectats a la web actual i resolts a totes les versions.</p>
+    <div class="common">
+      <div><h3>Accessibilitat</h3><p>Enllaç «salta al contingut», focus visible, etiquetes reals als formularis, menú amb <code>aria-expanded</code>, tancament amb Esc i respecte a «reduir moviment».</p></div>
+      <div><h3>Sense bloqueigs a l'usuari</h3><p>S'elimina el bloqueig de copiar, seleccionar text i clic dret: molestava (p. ex. per copiar el telèfon o l'adreça) i no protegia res.</p></div>
+      <div><h3>Formulari que funciona</h3><p>El formulari ja no és de demostració: valida els camps i obre el correu de l'usuari amb el missatge ja escrit per a <em>lacticsfoix@hotmail.com</em>.</p></div>
+      <div><h3>Mòbil primer</h3><p>Botons de trucar i «com arribar» sempre a mà, objectius tàctils de 44 px o més i cap desbordament horitzontal.</p></div>
+      <div><h3>Rendiment</h3><p>Fotos retallades i convertides a WebP (≈55 % menys pes), càrrega diferida d'imatges i mapa de Google només si es demana (privacitat).</p></div>
+      <div><h3>Contingut més clar</h3><p>Gustos en etiquetes, avís visible que no hi ha preus en línia, horari de visites destacat i errates corregides («Vacas» → «Vaques»).</p></div>
+    </div>
+  </section>
+
+  <section class="block" id="comparativa" style="padding-top:0">
+    <h2>Comparativa ràpida</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col"></th><th scope="col">1 · Clàssica</th><th scope="col">2 · Fresca</th><th scope="col">3 · Artesana</th><th scope="col">4 · Botiga</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Canvi d'imatge</th><td>Baix</td><td>Alt</td><td>Alt</td><td>Mitjà</td></tr>
+          <tr><th scope="row">Enfocament</th><td>Marca i confiança</td><td>Producte i frescor</td><td>Història i ofici</td><td>Venda a botiga</td></tr>
+          <tr><th scope="row">Barra d'accions en mòbil</th><td class="yes">Sí</td><td class="yes">Botó flotant</td><td class="no">—</td><td class="yes">Sí (tipus app)</td></tr>
+          <tr><th scope="row">Filtres de productes</th><td class="no">—</td><td class="yes">Sí</td><td class="no">—</td><td class="yes">Per producte i gust</td></tr>
+          <tr><th scope="row">Llista / comanda</th><td class="no">—</td><td class="no">—</td><td class="no">—</td><td class="yes">Sí</td></tr>
+          <tr><th scope="row">Preguntes freqüents</th><td class="no">—</td><td class="yes">Sí</td><td class="no">—</td><td class="no">—</td></tr>
+          <tr><th scope="row">Galeria amb visor</th><td class="yes">Sí</td><td class="no">—</td><td class="yes">Polaroids</td><td class="no">—</td></tr>
+          <tr><th scope="row">Mode fosc</th><td class="no">—</td><td class="yes">Sí</td><td class="no">—</td><td class="no">—</td></tr>
+          <tr><th scope="row">Longitud de la pàgina</th><td>Llarga</td><td>Mitjana</td><td>Mitjana</td><td>Curta</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="intro" style="margin-top:16px;font-size:.95rem">Les peces es poden combinar: per exemple, l'estètica de l'1 o la 3 amb la llista de comanda de la 4 i les FAQ de la 2.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Propostes de disseny per a Làctics Foix · Granja Cal Manyà, Torrelles de Foix. Les fotos pertanyen a la granja; la imatge de capçalera original no s'ha reutilitzat.</div>
+</footer>
+</body>
+</html>
